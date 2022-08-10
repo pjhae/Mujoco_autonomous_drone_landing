@@ -1,0 +1,34 @@
+<mujoco model="hexy-v2.3">
+    <include file="scenes/scene.xml"/>
+    <include file="assets/dep-v2.3.xml"/>
+    <compiler meshdir="meshes/"/>
+    <worldbody>
+        <body name="hexy_frame" pos="0 0 0">
+            <camera name="track" mode="trackcom" pos="-2.5 0 1.0" xyaxes="0 -1 0 0.2 0 1" />
+            <camera name="track_test" mode="trackcom" pos="-1 -1 0.8" xyaxes="1 -1 0 0.2 0.2 1"/>
+
+            <joint name="Tx" pos="0 0 0" axis="1 0 0" limited="true" type="slide" range="-10 100"/>
+            <joint name="Ty" pos="0 0 0" axis="0 1 0" limited="true" type="slide" range="-10 100"/>
+            <joint name="Tz" pos="0 0 0" axis="0 0 1" limited="true" type="slide" range="-10 100"/>
+            <joint name="Rx" pos="0 0 0" axis="1 0 0" limited="true" range="-20 20"/>
+            <joint name="Ry" pos="0 0 0" axis="0 1 0" limited="true" range="-20 20"/>
+            <joint name="Rz" pos="0 0 0" axis="0 0 1" limited="true" range="-20 100"/>
+            <include file="assets/chain-v2.3.xml"/>
+        </body>
+
+
+        <body name="hexy_frame_2" pos="0.45 0.0 0">
+
+            <joint name="Tx_2" pos="0 0 0" axis="1 0 0" limited="true" type="slide" range="-10 100"/>
+            <joint name="Ty_2" pos="0 0 0" axis="0 1 0" limited="true" type="slide" range="-10 100"/>
+            <joint name="Tz_2" pos="0 0 0" axis="0 0 1" limited="true" type="slide" range="-10 100"/>
+            <joint name="Rx_2" pos="0 0 0" axis="1 0 0" limited="true" range="-20 20"/>
+            <joint name="Ry_2" pos="0 0 0" axis="0 1 0" limited="true" range="-20 20"/>
+            <joint name="Rz_2" pos="0 0 0" axis="0 0 1" limited="true" range="-20 100"/>
+
+            <include file="assets/chain-v2.4.xml"/>
+        </body>
+
+
+    </worldbody>
+</mujoco>
