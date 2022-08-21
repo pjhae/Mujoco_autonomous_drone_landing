@@ -1,7 +1,4 @@
-## Mujoco_drone_landing
-
-
-##  Drone landing on moving target
+## Autonomous Landing of Quadrotor on a Moving Target Using Vision-based RL
  
 
 ### 0. Requirements
@@ -22,8 +19,8 @@
   4. Train/Test
 
     cd YOUR_PATH/python3.X/site-packages/gym/train_test_
-    (Training v9) python PPO_train.py
-    (Training v8) python PPO_train_custum-v2.py
+    (Training v1) python PPO_train.py
+    (Training v2) python PPO_train_custum-v2.py
     (Test) python PPO_check.py
     
     
@@ -32,24 +29,26 @@
 
 Our main Our fundamental goal is to control the robot in simulation using a vision-based RL algorithm.
 
-TASK : Target tracking Locomotion
+TASK : Autonomous Quadrotor landing on a moving platform
 
-![image](https://user-images.githubusercontent.com/74540268/183004358-ea2d3f36-fce0-4717-adcd-ef64bc1f3c92.png)
+![image](https://user-images.githubusercontent.com/74540268/185775849-b4881703-71ee-4586-89ba-700f46be91fe.png)
 
 
 
 ##
-### 2. Hardware 3D design
+### 2. Hardware 3D design (Quadrotor , Car)
+Design Tool : Solidworks (+ SWtoURDF)
 
-![hexy_heat2](https://user-images.githubusercontent.com/74540268/169944721-46a89900-eaed-4b17-b6cb-a4496fd48ab6.PNG)
+![image](https://user-images.githubusercontent.com/74540268/185775891-0b8afc1d-981f-4e78-a384-ba34b3023b14.png)
 
-URDF, xml : All links and joints are manually reverse engineered using assembly file from [Arcbotics](http://arcbotics.com/products/hexy/) 
+![image](https://user-images.githubusercontent.com/74540268/185775905-8d107f19-7783-4ed5-b334-809d2749b2a3.png)
+
+
 
 ##
 ### 3. MUJOCO camera sensor
 
-![image](https://user-images.githubusercontent.com/74540268/183004430-8e820044-b7ad-48bb-8a43-1c519efd3879.png)
-
+![image](https://user-images.githubusercontent.com/74540268/185775919-4f4f988f-cbda-4e34-bc03-3f3266dd3ffe.png)
 
 For mounting Camera on Robot Model, you can see the file in gym/mujoco/assets/Hexy_ver_2.3/assets
 
@@ -59,13 +58,12 @@ To get RGB data from camera for observation, you can see the file in gym/mujoco/
 ##
 ### 4. Policy Net
 
-![image](https://user-images.githubusercontent.com/74540268/179349101-6eb8b4ff-d24e-486e-99dd-2e28ca9d6620.png)
+![image](https://user-images.githubusercontent.com/74540268/185775942-a8166c51-4d8f-469e-8736-09e43c570ecc.png)
 
 
-• Input : Image RGB data + current motor angle
+• Input : Image RGB data + Current Action and Pitch angle n[Vx, Vy, Vz, Pitch angle] 
 
-
-• Output : Desired motor angle
+• Output : Vx, Vy, Vz, Wy 
 
 • RL algorithm : PPO
 
@@ -76,32 +74,43 @@ you can see the code for specific MDP setting(S,A,R..) info
 
     YOUR_PATH/python3.X/site-packages/gym/envs/mujoco/
 
-![image](https://user-images.githubusercontent.com/74540268/183005146-f607a6bd-2653-4a20-bad5-2e9ca2ad9132.png)
+![image](https://user-images.githubusercontent.com/74540268/185776069-f8405f81-4210-43bd-ae8e-ef32d35d75a7.png)
+
+![image](https://user-images.githubusercontent.com/74540268/185776080-080c067f-6dfe-445c-acf4-8d8806997694.png)
 
 
-**hexy_v8.py** : *TASK*
+**drone_v1.py** : *Simplified vector verification*
 
-**hexy_v9.py** : *Simplified vector verification*
+**drone_v2.py** : *TASK*
 
-
- 
-##
-### 6. Results - Simplified vector obs verification
-
-
-![image](https://user-images.githubusercontent.com/74540268/183004580-cc32688b-8a1c-4dca-adc0-e95dfffaec85.png)
 
 
 ##
-### 7. Results - Camera obs + CNN feature extraction
+### 6. Turn-Off Flag
+If the drone's **four points** touch the **landing box**, the propeller no longer needs to rotate
+- So, Let’s set all control inputs to **zero**. (= Turn off)
+- This algorithm is implemented using the **Turn-off flag.**
+
+![image](https://user-images.githubusercontent.com/74540268/185776157-647001d5-972e-439f-9519-dd259a906a2a.png)
+
+
+
+##
+### 7. Results - Simplified vector obs verification
+
+
+![image](https://user-images.githubusercontent.com/74540268/185776165-aca0bcc1-1f3d-4afd-a6a5-cca552157b31.png)
+
+##
+### 8. Results - Camera obs + CNN feature extraction
   
 
-![image](https://user-images.githubusercontent.com/74540268/183004664-03896098-c707-4258-b5c3-d086483bebf1.png)
+![image](https://user-images.githubusercontent.com/74540268/185776173-31debad8-05aa-4546-94ab-1093d1aadc95.png)
 
 
 ##
 
-### 8. VIDEO
+### 9. VIDEO
 
 **Video : [YOUTUBE link](https://youtu.be/n8gWz1U0qKk)**
 
