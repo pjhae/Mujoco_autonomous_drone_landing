@@ -20,7 +20,7 @@
 
     cd YOUR_PATH/python3.X/site-packages/gym/train_test_
     (Training v1) python PPO_train.py
-    (Training v2) python PPO_train_custum-v2.py
+    (Training v2) python PPO_train_custum-v3.py
     (Test) python PPO_check.py
     
     
@@ -33,15 +33,20 @@ TASK : Autonomous Quadrotor landing on a moving platform
 
 ![image](https://user-images.githubusercontent.com/74540268/185775849-b4881703-71ee-4586-89ba-700f46be91fe.png)
 
+Control Input(=Neural network output) and Constraints
+
+![image](https://user-images.githubusercontent.com/74540268/185776322-f5fa4236-0a05-459e-a7a0-0ec807ba0804.png)
+
 
 
 ##
 ### 2. Hardware 3D design (Quadrotor , Car)
 Design Tool : Solidworks (+ SWtoURDF)
 
-![image](https://user-images.githubusercontent.com/74540268/185775891-0b8afc1d-981f-4e78-a384-ba34b3023b14.png)
+![image](https://user-images.githubusercontent.com/74540268/185776303-fdaf7820-8d68-4629-a288-89ec259749b0.png)
 
-![image](https://user-images.githubusercontent.com/74540268/185775905-8d107f19-7783-4ed5-b334-809d2749b2a3.png)
+![image](https://user-images.githubusercontent.com/74540268/185776307-e8b13675-5676-4957-b6d4-6578ada9bd79.png)
+
 
 
 
@@ -50,9 +55,9 @@ Design Tool : Solidworks (+ SWtoURDF)
 
 ![image](https://user-images.githubusercontent.com/74540268/185775919-4f4f988f-cbda-4e34-bc03-3f3266dd3ffe.png)
 
-For mounting Camera on Robot Model, you can see the file in gym/mujoco/assets/Hexy_ver_2.3/assets
+For mounting Camera on Robot Model, you can see the file in gym/mujoco/assets/Drone_ver_1.0/assets
 
-To get RGB data from camera for observation, you can see the file in gym/mujoco/hexy_v8.py
+To get RGB data from camera for observation, you can see the file in gym/mujoco/drone_v2.py
 
 
 ##
@@ -61,7 +66,7 @@ To get RGB data from camera for observation, you can see the file in gym/mujoco/
 ![image](https://user-images.githubusercontent.com/74540268/185775942-a8166c51-4d8f-469e-8736-09e43c570ecc.png)
 
 
-• Input : Image RGB data + Current Action and Pitch angle n[Vx, Vy, Vz, Pitch angle] 
+• Input : Image RGB data + Current Action and Pitch angle [Vx, Vy, Vz, Pitch angle] 
 
 • Output : Vx, Vy, Vz, Wy 
 
