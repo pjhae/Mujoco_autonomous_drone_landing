@@ -117,7 +117,7 @@ If the drone's **four points** touch the **landing box**, the propeller no longe
 
 ### 9. VIDEO
 
-**Video : [YOUTUBE link](https://youtu.be/n8gWz1U0qKk)**
+**Video : [YOUTUBE link](https://www.youtube.com/watch?v=5fczajDC63E)**
 
 You can watch **video** through the link above!
 
