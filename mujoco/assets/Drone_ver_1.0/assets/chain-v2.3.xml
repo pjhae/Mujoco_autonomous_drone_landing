@@ -1,0 +1,52 @@
+<mujocoinclude>
+    <body childclass="drone_car" name="Drone" pos="0 0 0.06" euler="-1.570796 -0.785398 0">
+
+
+    <camera mode="fixed" name = "indi_eye_camera" pos ="0.0 -0.05003 0.0" euler="1.570796 0 -2.356194" fovy = "120"/>
+        <!-- Torso  -->
+        <geom class="main_body" name="Main_body" mesh="Main_body" rgba="1 0.3 0.3 1"/>
+        <geom class="collision" name="Main_body_col_1" type="box" pos="0.045 0.01 0.005" size="0.01 0.01 0.02" euler="0 -0.785398 0" />
+        <geom class="collision" name="Main_body_col_2" type="box" pos="-0.045 0.01 -0.005" size="0.01 0.01 0.02" euler="0 -0.785398 0" />
+        <geom class="collision" name="Main_body_col_3" type="box" pos="0.005 0.01 0.045" size="0.01 0.01 0.02" euler="0 -0.785398 0" />
+        <geom class="collision" name="Main_body_col_4" type="box" pos="-0.005 0.01 -0.045" size="0.01 0.01 0.02" euler="0 -0.785398 0" />
+
+        <!-- For Axis check  -->
+        <!--<geom class="main_body" name="x" type="box" pos="0 0 0" size="0.005 0.005 3" euler="0 -0.785398 0" rgba="1 0.3 0.3 1"/>
+        <geom class="main_body" name="y" type="box" pos="0 0 0" size="0.005 0.005 3" euler="0 0.785398 -2.356194" rgba="1 0.3 0.3 1"/>
+        <geom class="main_body" name="z" type="box" pos="0 0 0" size="0.005 0.005 3" euler="1.570796 0 1.570796" rgba="1 0.3 0.3 1"/> -->
+
+        <inertial pos="1.51341e-05 -0.0114215 -1.51759e-05" quat="0.653416 0.270518 0.27062 0.653171" mass="0.153935" diaginertia="0.00022914 0.000122973 0.000121538" />
+        <!-- FL Blade -->
+        <body name="FL_blade" pos="0.123715 -0.018 0" quat="0 -0.950714 0 -0.310071">
+            <inertial pos="0 0.0025 0" quat="0.5 0.5 0.5 0.5" mass="0.00736933" diaginertia="9.62503e-06 4.82787e-06 4.82787e-06" />
+            <joint name="FL_joint" pos="0 0 0" axis="0 1 0" />
+            <geom class="blade"/>
+            <geom class="collision" name="FL_blade_col" type="cylinder" pos="0 0.0025 0" size="0.045 0.005" euler="1.570796 0 0" />
+
+        </body>
+        <!-- FR Blade -->
+        <body name="FR_blade" pos="0 -0.018 -0.123715" quat="0 -0.951214 0 0.308532">
+            <inertial pos="0 0.0025 0" quat="0.707107 0 0 0.707107" mass="0.00736933" diaginertia="9.62503e-06 4.82787e-06 4.82787e-06" />
+            <joint name="FR_joint" pos="0 0 0" axis="0 1 0" />
+            <geom class="blade"/>
+            <geom class="collision" name="FR_blade_col" type="cylinder" pos="0 0.0025 0" size="0.045 0.005" euler="1.570796 0 0" />
+
+        </body>
+        <!-- BL Blade -->
+        <body name="BL_blade" pos="0 -0.023 0.123715" quat="0.630389 0 -0.77628 0">
+            <inertial pos="0 -0.0025 0" quat="0.707107 0 0 0.707107" mass="0.00736933" diaginertia="9.62503e-06 4.82787e-06 4.82787e-06" />
+            <joint name="BL_joint" pos="0 0 0" axis="0 1 0" />
+            <geom class="blade"/>
+            <geom class="collision" name="BL_blade_col" type="cylinder" pos="0 0.0025 0" size="0.045 0.005" euler="1.570796 0 0" />
+
+        </body>
+        <!-- BR Blade -->
+        <body name="BR_blade" pos="-0.123715 -0.023 0" quat="0.28506 0 -0.95851 0">
+            <inertial pos="0 -0.0025 0" quat="0.707107 0 0 0.707107" mass="0.00736933" diaginertia="9.62503e-06 4.82787e-06 4.82787e-06" />
+            <joint name="BR_joint" pos="0 0 0" axis="0 1 0" />
+            <geom class="blade"/>
+            <geom class="collision" name="BR_blade_col" type="cylinder" pos="0 0.0025 0" size="0.045 0.005" euler="1.570796 0 0" />
+
+        </body>
+    </body>
+</mujocoinclude>

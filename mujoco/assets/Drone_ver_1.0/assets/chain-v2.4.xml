@@ -1,0 +1,50 @@
+<mujocoinclude>
+    <body childclass="drone_car" name="Car" pos="0 0 0.1" euler="1.570796 3.141592 0">
+
+        <!-- Torso  -->
+        <geom class="main_body" name="Truck" mesh="truck" rgba="0.6 0.6 0.9 1"/>
+        <geom class="main_body" name="Landing_box_h" mesh="landing_box_h" pos="0.07 0.16 0" rgba="0.4 0.4 1 1"/>
+        <geom class="collision" name="Landing_box_col" type="box" pos="0.07 0.11 0" size="0.20 0.05 0.20" euler="0 0 0" />
+        <geom class="main_body" name="x" type="cylinder" pos="0.07 0.155 0" size="0.18 0.002" euler="1.570796 0 0" rgba="0 0 0 1"/>
+
+        <!--<geom class="main_body" name="pole" type="cylinder" pos="0.03 0 0" size="0.3 0.1" euler="1.570796 0 0" rgba="0.3 1 1 1"/>-->
+
+        <inertial pos="-0.0716966 0.0590631 0" quat="0.525785 0.525785 0.472811 0.472811" mass="16.0322" diaginertia="0.696332 0.491238 0.245138" />
+        <!-- FL Blade -->
+        <body name="front_axis" pos="-0.22 0 0" quat="0 0.707107 0 -0.707107">
+            <inertial pos="5.93917e-11 0.0457281 -6.0697e-09" quat="0 0.707107 0 0.707107" mass="0.0276778" diaginertia="0.000258681 0.000254859 4.21682e-06" />
+            <joint name="main_to_axis" pos="0 0 0" axis="0 1 0" range="-0.5 0.5"  />
+            <geom class="front_axis"/>
+            <body name="FL_wheel" pos="-0.18 0.05 0" quat="0.268193 0.654272 0.654272 -0.268193">
+                <inertial pos="0 -0.015 0" quat="0.707107 0 0 0.707107" mass="0.190852" diaginertia="0.000193237 0.000110933 0.000110933" />
+                <joint name="FL_joint_car" pos="0 0 0" axis="0 1 0" range="-10000 10000" />
+                <geom class="FL_wheel"/>
+                <geom class="collision" name="FL_wheel_col" type="cylinder" pos="0 -0.015 0" size="0.045 0.015 " euler="1.570796 0 0" />
+
+
+            </body>
+            <body name="FR_wheel" pos="0.18 0.05 0" quat="0.451705 0.544024 -0.544024 0.451705">
+                <inertial pos="0 -0.015 0" quat="0.707107 0 0 0.707107" mass="0.190852" diaginertia="0.000193237 0.000110933 0.000110933" />
+                <joint name="FR_joint_car" pos="0 0 0" axis="0 1 0" range="-10000 10000" />
+                <geom class="FR_wheel"/>
+                <geom class="collision" name="FR_wheel_col" type="cylinder" pos="0 -0.015 0" size="0.045 0.015 " euler="1.570796 0 0" />
+            </body>
+        </body>
+        <!-- FR Blade -->
+        <body name="BL_wheel" pos="0.2 -0.05 0.18" quat="0 0 0.707107 0.707107">
+            <inertial pos="0 0.015 0" quat="0.707107 0 0 0.707107" mass="0.190852" diaginertia="0.000193237 0.000110933 0.000110933" />
+            <joint name="BL_joint_car" pos="0 0 0" axis="0 1 0" range="-10000 10000" />
+            <geom class="BL_wheel"/>
+            <geom class="collision" name="BL_wheel_col" type="cylinder" pos="0 0.015 0" size="0.045 0.015 " euler="1.570796 0 0" />
+        </body>
+        <!-- BL Blade -->
+        <body name="BR_wheel" pos="0.2 -0.05 -0.18" quat="0 0 0.707107 0.707107">
+            <inertial pos="0 -0.015 0" quat="0.707107 0 0 0.707107" mass="0.190852" diaginertia="0.000193237 0.000110933 0.000110933" />
+            <joint name="BR_joint_car" pos="0 0 0" axis="0 1 0" range="-10000 10000" />
+            <geom class="BR_wheel"/>
+            <geom class="collision" name="BR_wheel_col" type="cylinder" pos="0 -0.015 0" size="0.045 0.015 " euler="1.570796 0 0" />
+<!--            <geom class="main_body" name="line" type="cylinder" pos="0.0 -0.02 0" size="0.01 0.011" euler="1.570796 0 0" rgba="0 0.6 0 1"/>-->
+        </body>
+
+    </body>
+</mujocoinclude>

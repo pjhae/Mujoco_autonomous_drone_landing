@@ -1,0 +1,50 @@
+<mujocoinclude>
+  <asset>
+    <!--<texture name="skybox" type="skybox" builtin="gradient" rgb1="0 0 0" rgb2="0 0 0" width="800" height="800" mark="random" markrgb=".8 .8 .8"/>-->
+    <!-- builtin="flat"-->
+    <texture name="texplane" type="2d" builtin="flat" rgb1="0.95 0.95 0.95"  width="5120" height="5120"/>
+    <material name="MatPlane" reflectance="0" texture="texplane" texrepeat="1 1" texuniform="true"  />
+    <mesh name="test_Map" file="curved_map.STL"/>
+    <mesh name="strai_Map" file="straight_line4.STL"/>
+
+    <mesh name="curved_Map1" file="curved_map_1.STL"/>
+    <mesh name="curved_Map2" file="curved_map_2.STL"/>
+
+    <mesh name="C_Map1" file="C-map_1.STL"/>
+    <mesh name="C_Map2" file="C-map_2.STL"/>
+    <mesh name="C_Map3" file="C-map_3.STL"/>
+    <mesh name="C_Map4" file="C-map_4.STL"/>
+  </asset>
+
+  <visual>
+    <headlight ambient="0.5 0.5 0.5" />
+  </visual>
+
+  <worldbody>
+    <light directional="false" diffuse=".3 .3 .3" specular="0.3 0.3 0.3" pos="0 0 1000" />
+
+    <!--<light directional="true" diffuse=".3 .3 .3" specular="0.3 0.3 0.3" pos="-1 -1 1" dir="1 1 -1"/>
+    <light directional="true" diffuse=".3 .3 .3" specular="0.3 0.3 0.3" pos="1 -1 1" dir="-1 1 -1"/>
+    <light directional="true" diffuse=".3 .3 .3" specular="0.3 0.3 0.3" pos="0 1 1" dir="0 -1 -1"/>
+    <light directional="false" diffuse=".3 .3 .3" specular="0.3 0.3 0.3" pos="0 0.0 1" />-->
+    
+    <geom name="floor" pos="0 0 0" size="30 5 .1" conaffinity="1" contype="1" type="plane" material="MatPlane" condim="4"/>
+    <site name="xaxis" pos=".5 0 0" size=".005 .5" type="capsule" rgba="1 0 0 .25" euler="0 1.57 0" group="3"/>
+    <site name="yaxis" pos="0 .5 0" size=".005 .5" type="capsule" rgba="0 1 0 .25" euler="1.57 0 0" group="3"/>
+    
+    <!-- TASK 1 -->
+    <!--<geom name="Goal" type="box" pos="7 -0.3 0.10" size="0.5 0.5 0.5" rgba="0.8 0.8 0.2 1"/>
+    <geom name="curved_map1" mesh="curved_Map1" pos="0.0 2.2 1" quat="0.5 -0.5 0.5 -0.5"  type="mesh" rgba="0.8 0.2 0.5 1" mass="1"/>
+    <geom name="curved_map2" mesh="curved_Map2" pos="0.0 2.2 1" quat="0.5 -0.5 0.5 -0.5"  type="mesh" rgba="0.8 0.2 0.5 1" mass="1"/>
+    <geom name="curved_map3" mesh="curved_Map1" pos="0.0 0.1 1" quat="0.5 -0.5 0.5 -0.5"  type="mesh" rgba="0.8 0.2 0.5 1" mass="1"/>
+    <geom name="curved_map4" mesh="curved_Map2" pos="0.0 0.1 1" quat="0.5 -0.5 0.5 -0.5"  type="mesh" rgba="0.8 0.2 0.5 1" mass="1"/>-->
+
+    <!-- TASK 2 -->
+    <!--<geom name="Goal" type="box" pos="2 0.0 0.7" size="0.8 0.8 0.8" rgba="0.8 0.8 0.2 1"/>
+    <geom name="Map_circle1" mesh="C_Map1" pos="0 2 0" euler = "1.5708 0 0"  type="mesh" rgba="0.8 0.2 0.5 1" mass="1"/>
+    <geom name="Map_circle2" mesh="C_Map2" pos="-2 2 0" euler = "1.5708 0 0"  type="mesh" rgba="0.8 0.2 0.5 1" mass="1"/>
+    <geom name="Map_circle3" mesh="C_Map3" pos="-2 0 0" euler = "1.5708 0 0"  type="mesh" rgba="0.8 0.2 0.5 1" mass="1"/>
+    <geom name="Map_circle4" mesh="C_Map4" pos="0 0 0" euler = "1.5708 0 0"  type="mesh" rgba="0.8 0.2 0.5 1" mass="1"/>-->
+
+  </worldbody>
+</mujocoinclude>

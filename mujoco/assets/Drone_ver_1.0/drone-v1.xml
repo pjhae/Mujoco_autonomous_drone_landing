@@ -1,0 +1,29 @@
+<mujoco model="drone-v1">
+    <include file="scenes/scene.xml"/>
+    <include file="assets/dep-v2.3.xml"/>
+    <compiler meshdir="meshes/"/>
+    <worldbody>
+    <camera name="Main_fixed_cam" pos="7 0 1" xyaxes="0 1 0 -0.1 0 1" />
+        <body name="drone_frame" pos="-1.5 0 2">
+            <camera name="Tracking_com" mode="trackcom" pos="-2.5 0 1.6" xyaxes="0 -1 0 0.6 0 1"/>
+            <joint name="Tx" pos="0 0 0" axis="1 0 0" limited="true" type="slide" range="-10 100"/>
+            <joint name="Ty" pos="0 0 0" axis="0 1 0" limited="true" type="slide" range="-10 100"/>
+            <joint name="Tz" pos="0 0 0" axis="0 0 1" limited="true" type="slide" range="-10 100"/>
+            <joint name="Rx" pos="0 0 0" axis="1 0 0" limited="true" range="-20 20"/>
+            <joint name="Ry" pos="0 0 0" axis="0 1 0" limited="true" range="-20 20"/>
+            <joint name="Rz" pos="0 0 0" axis="0 0 1" limited="true" range="-20 100"/>
+            <include file="assets/chain-v2.3.xml"/>
+        </body>
+
+        <body name="car_frame" pos="0 0 0">
+            <joint name="Tx_car" pos="0 0 0" axis="1 0 0" limited="true" type="slide" range="-10 100"/>
+            <joint name="Ty_car" pos="0 0 0" axis="0 1 0" limited="true" type="slide" range="-10 100"/>
+            <joint name="Tz_car" pos="0 0 0" axis="0 0 1" limited="true" type="slide" range="-10 100"/>
+            <joint name="Rx_car" pos="0 0 0" axis="1 0 0" limited="true" range="-20 20"/>
+            <joint name="Ry_car" pos="0 0 0" axis="0 1 0" limited="true" range="-20 20"/>
+            <joint name="Rz_car" pos="0 0 0" axis="0 0 1" limited="true" range="-20 100"/>
+            <include file="assets/chain-v2.4.xml"/>
+        </body>
+
+    </worldbody>
+</mujoco>
